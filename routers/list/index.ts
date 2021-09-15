@@ -2,7 +2,7 @@
  * @Version: 0.0.0.1
  * @LastEditor: Kian
  * @Date: 2021-09-14 16:44:59
- * @LastEditTime: 2021-09-14 17:45:00
+ * @LastEditTime: 2021-09-15 10:47:20
  */
 import router from './../../utils/swagger';
 import ListConstroller from './../../controllers/list'
@@ -28,3 +28,19 @@ genOpenApiMark('/api/list', {
   }
 })
 router.get('/api/list', ListConstroller.getList)
+
+genOpenApiMark('/api/tag', {
+  get: {
+    description: '获取tag!',
+    summary: '获取tag!',
+    tags: ['list模块'],
+    responses: {
+      200: {
+        description: '请求成功',
+      },
+      500: {
+        description: '请求失败',
+      }
+    }
+  }
+})
