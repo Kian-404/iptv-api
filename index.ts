@@ -2,7 +2,7 @@
  * @Version: 0.0.0.1
  * @LastEditor: Kian
  * @Date: 2021-09-14 16:04:11
- * @LastEditTime: 2021-09-15 13:46:23
+ * @LastEditTime: 2021-09-16 15:45:36
  */
 import Koa from "koa";
 import router from './routers/index'
@@ -36,9 +36,11 @@ app.use(
     hideTopbar: true
   }),
 );
-
-const port: number = 3030;
+const port = process.env.PORT || 3000;
+const host = process.env.HOST || "http://localhost"
 app.listen(port, () => {
   console.log(`seccess start server`)
-  console.log(`local: http://127.0.0.1:${port}`)
+  console.log(`local: ${host}:${port}`)
 })
+
+module.exports = app
