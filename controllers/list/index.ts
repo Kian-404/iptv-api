@@ -2,7 +2,7 @@
  * @Version: 0.0.0.1
  * @LastEditor: Kian
  * @Date: 2021-09-14 16:46:13
- * @LastEditTime: 2021-09-26 10:52:07
+ * @LastEditTime: 2021-09-27 09:44:59
  */
 import { dataFormate } from "../../utils/data";
 
@@ -10,6 +10,7 @@ import getData from "./getData";
 import getSatellite from "./getSatellite";
 import getSport from "./getSport";
 import getMove from "./getMove";
+import getCCTV from "./getCCTV";
 
 class ListConstroller {
   async getList(ctx: any) {
@@ -54,6 +55,18 @@ class ListConstroller {
     try {
 
       let result = await getMove();
+      ctx.body = dataFormate(result, 200)
+
+    } catch {
+
+      ctx.body = dataFormate('err', 500);
+
+    }
+  }
+  async getCCTV(ctx: any) {
+    try {
+
+      let result = await getCCTV();
       ctx.body = dataFormate(result, 200)
 
     } catch {
